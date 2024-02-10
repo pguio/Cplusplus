@@ -6,6 +6,9 @@
 
 #include <dlfcn.h>
 
+#include <gnu/lib-names.h>  /* Defines LIBM_SO (which will be a
+                                      string such as "libm.so.6") */
+
 
 int main(int argc, char **argv)
 {
@@ -13,21 +16,23 @@ int main(int argc, char **argv)
   double (*cosine)(double);
   const char *error;
 
-  handle = dlopen ("libm.so", RTLD_LAZY);
+  handle = dlopen (LIBM_SO, RTLD_LAZY);
   if (!handle) {
-    std::cerr << dlerror() << std::endl;
+    std::cerr << "dlopen: " << dlerror() << std::endl;
     return !0;
   }
 
   cosine = (double (*)(double))dlsym(handle, "cos");
   if ((error = dlerror()))  {
-    std::cerr << error << std::endl;
+    std::cerr << "dlsym: " << error << std::endl;
     return !0;
   }
 
   std::cout << "(*cosine)(2.0)=" << (*cosine)(2.0) << std::endl;
-  std::cout << "cos(2.0)=" << cos(2.0) << std::endl;
+  std::cout << "cos(2.0)      =" << cos(2.0) << std::endl;
+
   dlclose(handle);
+
   return 0;
 }
 
