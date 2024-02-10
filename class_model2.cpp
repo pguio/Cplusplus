@@ -56,9 +56,9 @@ int main()
   bench::verbose = true;
 
   Test1 t1;
-  bench::benchClassOp(t1, 1.0);
+  bench::benchClassOp(t1, 0.5);
   Test2 t2;
-  bench::benchClassOp(t2, 1.0);
+  bench::benchClassOp(t2, 0.5);
 
   return 0;
 }
