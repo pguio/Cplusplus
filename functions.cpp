@@ -228,7 +228,7 @@ int main(int nargs, char *args[])
 {
   try {
 
-    double minTime = 2.0;
+    double minTime = 0.5;
     bench::verbose = true;
 
     Function1 f1(nargs, args);
