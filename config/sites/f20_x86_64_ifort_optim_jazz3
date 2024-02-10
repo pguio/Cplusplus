@@ -1,0 +1,23 @@
+#!/bin/bash
+
+####
+#### Patrick Dell precision m4700 F20
+####
+
+with_eigen=/usr/include/eigen3
+
+with_fftw=
+with_fftw3=
+
+
+with_hdf4=/usr/include/hdf,/usr/lib64/hdf
+with_hdf5=/usr/include,/usr/lib64
+
+with_blitz=/usr/local/blitz2
+
+enable_threadsafe_blitz=
+
+enable_cxx_flags_preset=no
+
+CXX=icpc 
+CXXFLAGS="-ansi -xSSE4.2 -O3 -ipo -no-prec-div -ansi-alias -qopt-report=1 -restrict"

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+####
+#### Patrick Dell precision F29
+####
+
+with_eigen=/usr/include/eigen3
+
+with_fftw=
+with_fftw3=
+
+
+with_hdf4=/usr/include/hdf,/usr/lib64/hdf
+with_hdf5=
+
+with_blitz=/usr/local/blitz3
+
+enable_threadsafe_blitz=
+
+enable_cxx_flags_preset=no
+
+CXX=pgc++
+
+CXXFLAGS="-std=c++11 -O" 
+
+AR=ar

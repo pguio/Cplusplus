@@ -1,0 +1,33 @@
+#!/bin/bash
+
+####
+#### Patrick Dell precision m4700 F20
+####
+
+with_eigen=/usr/include/eigen3
+
+with_fftw=
+with_fftw3=
+
+
+with_hdf4=/usr/include/hdf,/usr/lib64/hdf
+# version 1.10.x
+with_hdf5=/usr/include,/usr/lib64
+# version 1.8.x
+#with_hdf5=/opt/hdf5-1.8.21/include,/opt/hdf5-1.8.21/lib
+
+#with_blitz=/usr/local/blitz3
+with_blitz=/usr/local/blitz1/include,/usr/local/blitz1/lib64
+
+enable_threadsafe_blitz=no
+
+enable_cxx_flags_preset=no
+
+CXX=g++
+
+# -Wignored-attributes for static_assert warning in bench_tensor.cpp
+CXXFLAGS="-std=c++11 -O -Wall" 
+#CXXFLAGS="-std=c++11 -O -DH5_USE_18_API" 
+#CXXFLAGS="-std=c++11 -O -DH5_USE_16_API" 
+
+#AR=ar
