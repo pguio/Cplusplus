@@ -1,0 +1,6 @@
+[submodule "m4"]
+	path = m4
+	url = git@github.com:pguio/m4.git
+[submodule "c++-tools"]
+	path = c++-tools
+	url = git@github.com:pguio/cplusplus-tools.git
