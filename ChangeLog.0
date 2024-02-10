@@ -1,0 +1,463 @@
+
+Fri Aug 25 16:15:16 CEST 2006 Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* expr_template.cppp expr_template1.cpp:
+	Added namespace to avoid an an ambiguity that triggered an error with
+	pgCC.
+	* functions.cpp:
+	Added typeinfo header for typeid that triggered an error with pgCC.
+	* expr_template.cppp expr_template1.cpp:
+	Astylised.
+
+Mon Aug 21 14:38:21 CEST 2006 Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* configure.ac:
+	Updated to autoconf 2.60.
+
+
+Thu Mar 16 12:28:06 CET 2006 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac: 
+	Updated C++ compilers list.
+
+Fri Mar 10 15:23:52 CET 2006 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* Makefile.am:
+	Fixed CXX_FLAGS for fourier_bench family.
+	* Makefile.am:
+	Fixed typo in variable name LTDLINCL.
+
+
+Mon Dec  5 19:40:52 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac Makefile.am:
+	Fixed for using new macros to check blitz, hdf* and fft libraries.
+	* dll.cpp dynamic_cast.cpp fourier-test.cpp metaprog1.cpp multi2.cpp:
+	Fixed a few warnings when compiling with g++ version 4.0.2.
+	* configure.ac:
+	Bumped version 1.2.1
+
+	* new tag: tag cpp_examples_1_2_1.
+
+Mon Oct 10 15:01:51 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* factory-args.h factory-args1.h factory.h:
+	Removed unused statement in for statement in content() method.
+	* functions.cpp functions1.cpp:
+	Cosmetic change. 
+	Explicit declaration of virtual destructor if any virtual method.
+	Provide a name to enum's to avoid trouble with gcc4 and unnamed enums
+	(see http://gcc.gnu.org/ml/gcc-bugs/2005-03/msg02741.html)
+
+Fri Oct  7 16:57:00 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac: Included macros definition HAVE_BLITZ in m4 code.
+	* test-parser.cpp: Fixed value type of init argument for variable 
+	RealVec3.
+
+
+Mon Aug 22 16:23:18 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* create_hdf_sd.cpp: Changed method initSD() into createSD(). Removed
+	method endInitSD().
+
+
+Fri Jul  8 17:39:39 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* create_hdf_sd.cpp: Migrated to support both HDF4 and HDF5 interfaces.
+
+Thu Jul  7 18:41:15 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac: Added macro to check HDF5 support.
+
+
+Tue Jul  5 17:57:48 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* create_hdf_sd.cpp: Propagated changes from the hdf-interface.
+
+	* new tag: cvs tag -R cpp_examples_1_2_0
+
+
+Mon Jun 27 12:59:06 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* create_hdf_sd.cpp: Added try/catch blocks and more output.
+
+
+Mon Jun 20 17:58:22 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* any.cpp any1.cpp any2.cpp base-args.cpp class_model2.cpp derived-args.cpp
+	exception.cpp exception1.cpp expr_template1.cpp factory-args.h factory-args1.h
+	factory.h fourier-bench.cpp fourier-bench1.cpp gnuplot-example.cpp loop.cpp
+	map1.cpp map2.cpp map3.cpp map4.cpp multimap.cpp overload1.cpp popt.cpp
+	test-dcl.cpp test-dcl1.cpp test-enum.cpp typeid.cpp:
+	Replaced post-increment operator i++ by pre-increment operator ++i for
+	integral and iterator types wherever possible as faster (from C++ FAQ).
+
+
+Mon May  9 20:19:46 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* gnuplot-example.cpp: Replaced calls to system's sleep() by calls to Gnuplot
+	class member function pause(). Replaced call to ctor+assgn by ctor.
+
+Thu May  5 18:22:24 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* gnuplot-example.cpp: Fixed renamed member function reset_plot into reset.
+
+Tue May  3 16:01:56 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* gnuplot-example.cpp: New test for gnuplot-interface.
+	* Makefile.am: Added support for gnuplot-example.
+
+
+Wed Feb 23 10:53:01 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* multi.cpp multi1.cpp multi2.cpp: New files to test multiple and
+	virtual inheritance concepts.
+	* Makefile.am: Added support for new files.
+
+Mon Feb 14 09:49:12 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac: Added a first check for functions sin, popt, dlopen and
+	ltdlopen without extra library, if not successfull try with the specified
+	library. Added test for <cmath> header.
+	* fourier-bench.cpp: Added namespace specification for smartTime class.
+	Added returned value for template function bench.
+	* shape.h: Added explicit virtual declaration/definition for destructor.
+	* hash.cpp: Replaced using namespace by using statement to be used 
+	for compilers that define the macro __GNUC__.
+	* test-parser.cpp: Macro-protected initialisation of blitz objects.
+
+Wed Feb  9 12:16:03 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac: Required automake 1.9. Added dist-bzip2.
+
+Sat Feb  5 18:11:40 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* factory.h factory-args.h factory-args1.h: Added second template 
+	parameter in GenericFactory<AncestorType> to fix the case where 
+	ClassIDKey is not the default template parameter. 
+	Added a typedef for the type GenericFactory<AncestorType,ClassIDKey>.
+	* multimap.cpp: Removed unecessary semi-colon when defining (not declaring)
+	a member function.
+	* overload2.cpp test-parser.cpp: Removed unecessary name declaration
+	when defining enum's.
+	* functions.cpp functions1.cpp: Added factory of functionoids as 
+	an alternative solution to array of pointer-to-member-function.
+	* map4.cpp: Added parameter minTime for benching.
+
+
+Fri Feb  4 13:12:57 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* factory-args1.h: Removed default value for template argument in static
+	initialisation of member GenericFactory<>::bf.
+	* string0.cpp: Added namespace spec for reverse algorithm.
+
+Sun Jan 30 13:28:30 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac: Updated version to version 1.1.
+	* new version 1.1
+	* new tag: cvs tag -R cpp_examples_1_1_0
+
+Sat Jan 29 19:59:35 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* test-parser.cpp: Replaced catch of ParserException class by 
+	ClassException.
+
+Fri Jan 28 18:20:44 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* exception1.cpp: Replaced <exception> by <stdexception>. 
+	* string_convert.cpp: Fixed testing of char value.
+	* test-parser.cpp: Replaced parseOptionInFileOnCmdLine calls to generic
+	parseOption member function.
+
+
+Wed Jan 26 10:53:10 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* Maefile.am: Removed support for parser with char * type and 
+	replaced by std::string type.
+	* test-parser.cpp: Added test parsing of objects of blitz TinyVector and
+	1d-Array class types.
+
+Thu Jan 20 19:05:46 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac Makefile.am: Added support for libltdl. Requires 
+	to run libtoolize --ltdl.
+	* factory-args1.h: New file. Dynamic version of factory-args.h.
+	* base-args.cpp class_factory2.cp derived-args.cpp factory-args.h:
+	Added necessary trick to handle correctly factory initialisation of
+	classes.
+	* Nakefile.am: Added support for both static (class_factory2) and
+	dynamic (class_factory3) factories.
+
+
+Tue Jan 18 13:09:22 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier-bench.cpp fourier-bench1.cpp fourier-bench2-utils.h: Replaced 
+	std::setiosflags(std::ios::fixed) calls by std::fixed calls.
+	std::fixed included by <iostream> while std::setiosflags included by
+	<iomanip>.
+
+Mon Jan 17 18:00:00 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* abc.cpp abc1.cpp abc2.cpp any.cpp any1.cpp any2.cpp auto_ptr.cpp
+	circle.cpp class_model.cpp class_model1.cpp const_cast.cpp dll.cpp
+	dynamic_cast.cpp exception.cpp exception1.cpp exception2.cpp
+	exception3.cpp fourier-bench.cpp fourier-bench1.cpp
+	fourier-bench2-dxml.cpp fourier-bench2-fftw.cpp fourier-bench2-fftw3.cpp
+	fourier-bench2-mlib.cpp fourier-test.cpp functions1.cpp hash.cpp
+	map0.cpp map1.cpp map2.cpp map3.cpp metaprog.cpp metaprog1.cpp
+	multimap.cpp multimap1.cpp overload.cpp overload1.cpp overload2.cpp
+	popt.cpp promote_trait.cpp readfile.cpp reinterpret_cast.cpp square.cpp
+	static_dynamic_class.cpp string0.cpp string1.cpp string2.cpp string3.cpp
+	string_convert.cpp test-dcl.cpp test-dcl1.cpp test-parser.cpp typeid.cpp
+	virtual.cpp virtual1.cpp shape.h: Removed "using namespace std" statements.
+
+Fri Jan  7 16:05:09 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* class_factory2.cpp factory-args.h: Added exception handling of
+	unregistered class.
+
+Wed Jan  5 16:19:28 CET 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* derived-args.cpp derived-args.h: New files.
+	* Makefile.am base-args.cpp class_factory2.cpp: Added support for derived
+	class test with arguments.
+
+Thu Dec 23 11:13:52 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* base.cpp class_factory.cpp class_factory1.cpp class_factory2.cpp
+	factory-args.h factory.h: Added type definition for pointer type. Can
+	be either type* or auto_ptr<type> (requires macro AUTO_PTR to be
+	defined). Added macro to avoid several inclusion of headers.
+
+Mon Dec  6 15:23:14 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* dll.cpp: New file to test dynamic load linking.
+	* Makefile.am: Added support for dll.cpp.
+	* test-dcl.cpp: Cosmetic changes.
+	* auto_ptr.cpp exception.cpp exception1.cpp fourier-test.cpp functions.cpp
+	functions1.cpp metaprog.cpp metaprog1.cpp popt.cpp readfile.cpp string0.cpp
+	test-parser.cpp: Removed exit() function calls. Replaced EXIT_FAILURE by !0.
+	Removed <stdlib.h>/<cstdlib> where unnecessary.
+
+
+Fri Dec  3 09:52:08 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* readfile.cpp: Fixed a bug in filename. Refactored with exception.
+	* exception2.cpp exception3.cpp: Removed.
+	* exception5.cpp: Renamed exception2.cpp.
+	* exception4.cpp: Renamed exception3.cpp.
+	* Makefile.am: Fix for above changes.
+	* exception.cpp exception1.cpp exception2.cpp exception3.cpp: Refactored.
+	* Makefile.am configure.ac: Fixed dlopen use for cxx but still dirty
+	trick. Need to move to real use of libtool.
+
+	* test-dcl1.cpp: New file. Show how to use dlopen through the libtool
+	interface.
+	* Makefile.am: Fix for added files.
+	* test-dcl.cpp: Replace exit() calls by return.
+
+
+Thu Dec  2 11:19:30 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac: Renamed package cpp-examples.
+	* fourier-bench1.cpp: Fixed DXML bench.
+	* fourier-test.cpp: Added different initialisation for the +1/-1 signs.
+	* fourier-bench2-utils.h: Added information about sense (direct/inverse) 
+	of the DFT benched.
+	* any.cpp any1.cpp any2.cpp: Added namespace any for class Any.
+	* create_hdf_sd.cpp: Added namespace hdf.
+	* any.cpp any1.cpp any2.cpp: Undo changes.
+
+
+Tue Nov 30 12:43:34 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier-bench2-utils.h fourier-test.cpp: Updated inplace DFT IDFT1D
+	template class with 2 templates.
+	* class_factory.cpp class_factory1.cpp class_factory2.cpp: Replaced
+	auto_ptr initialisation by a copy creator.
+	* fourier-bench2-utils.h fourier-test.cpp: Test direct DFT with both signs.
+	* Makefile.am: Fixed EXTRA_DIST variables.
+	* test-dcl.cpp: Declared BUF_SIZE const.
+
+
+Mon Nov 29 13:52:42 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* configure.ac: Added test for <popt.h> availability.
+	* popt.cpp: Added preprocessing condition on <popt.h> availability.
+	* functions.cpp: Added default case statement in Function1::get() and 
+	Function1::operator()() switch.
+
+	* class_model2.cpp functions.cpp functions1.cpp loop.cpp map4.cpp
+	fourier-bench.cpp fourier-bench1.cpp fourier-bench2.cpp: Added
+	initialisation of static bench::verbose variable.
+
+	* fourier-bench2-dxml.cpp fourier-bench2-fftw.cpp fourier-bench2-fftw3.cpp
+	fourier-bench2-mlib.cpp: New files to build fourier-bench2.
+	* Makefile.am: Added support for those new files.
+	* fourier-bench2-utils.h: Added r2c test. 
+
+	* fourier-test.cpp: Added test template functions for in place / out of place
+	DFT1D.
+
+	* fourier-bench2-utils.h fourier-test.cpp: Added test template function for 
+	IHDFT1D.
+
+
+Sun Nov 28 23:55:27 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier-bench.cpp fourier-test.cpp: Added support to the new fourier
+	interface.
+	* fourier-bench1.cpp fourier-bench2-utils.h fourier-bench2.cpp: New files.
+	* Makefile.am: Added support for the new files.
+
+Fri Nov 12 15:28:28 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier-test.cpp: Added test for real-valued FFT.
+
+Thu Nov 11 15:27:38 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* dxml_fft.cpp fftw_fft.cpp mlib_fft.cpp: Removed.
+	* fourier-test.cpp: New file to replace dxml_fft.cpp fftw_fft.cpp
+	mlib_fft.cpp.
+	* bench_fft.cpp: Rename fourier-bench.cpp.
+	* Makefile.am: Added support for above changes.
+
+	* test-parser.cpp: Updated for changes for valueType enum in the Parser
+	class.
+
+Wed Nov 10 16:56:32 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* loop.cpp: Removed preprocessor macro use for benchmarking. Complete
+	refactoring.
+
+Tue Nov  9 14:59:26 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* enum.cpp enum.h: Moved definition from enum.h to enum.cpp. Cosmetic
+	changes.
+	* metaprog.cpp: Removed preprocessor macro use for benchmarking.
+	* class_model2.cpp: Replaced class A1,A2 by A and B1,B2 by B. Cosmetic
+	changes.
+	* class_model2.cpp: Cosmetic changes
+	* map4.cpp: Added test 1000 x map::insert() and 1000 x operator[].
+	* functions.cpp functions1.cpp: Removed preprocessor macro use for
+	benchmarking. Complete refactoring.
+
+
+Mon Nov  8 20:12:13 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* testdcl.cpp: Renamed test-dcl.cpp.
+	* enum.cpp enum.h test-enum.cpp: New files. Enum-like class demo.
+	* Makefle.am: Added support for new files.
+
+	* map0.cpp map1.cpp map2.cpp map3.cpp map4.cpp: Cosmetic changes.
+
+
+Fri Nov  5 18:35:24 CET 2004 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* parse.cpp: Renamed parser-test.cpp.
+	* Makefle.am: Accounted for the renamed file.
+
+Wed Oct 20 18:32:57 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* map4.cpp class_model2.cpp: Added support for template 
+	class benchClassOp(). Removed usage of cpp macro BENCH.
+
+Tue Oct 19 16:10:34 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* map2.cpp: Renamed map3.cpp.
+	* staticmap.cpp: Renamed map2.cpp.
+	* map4.cpp: New file.
+	* Makefile.am: Added support for map4.cpp.
+
+	* any.cpp: Cosmetic change.
+	* any1.cpp any2.cpp: New files.
+	* Makefile.am: Added support for any1.cpp and any2.cpp.
+
+	* parse.cpp: Declared LUT Enum_map static. Initialised with a 
+	const Enum_map array[].
+
+Mon Oct 18 18:40:42 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* map2.cpp: Replaced map.insert() method calls by map creator(pstrt,pend).
+	Declared Foo::LUT options to be static and make use of map
+	creator(pstrt,pend).
+
+	* parse.cpp: Modified insertOption() argument type to be an enum
+	Parser::valueType.
+
+	* base-args.cpp base-args.h class_factory2.cpp factory-args.h: New files to test
+	 class factory concept with class creator with arguments.
+	* Makefile.am: Updated with new test.
+
+
+Fri Oct 15 12:10:11 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* class_factory.cpp class_factory.h class_factory1.cpp class_factory1.h:
+	New files to test class factory concept.
+	
+	* configure.ac Makefile.am: Added support for those.
+
+	* testdcl.cpp: Replaced "ls" command to find dynamic libs *.so into "find ." 
+	command.
+
+	* base.cpp base.h derived.cpp derived.h factory.h: New files to test class
+	factory concept.
+	* class_factory.cpp class_factory1.cpp: Fixed to use new files.
+	* class_factory.h class_factory1.h: Removed since rendered obsolete with
+	new files.
+
+
+Thu Sep 30 12:48:26 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* configure.ac Makefile.am: Added support for dynamic loading of library
+	for testdcl.cpp.
+
+Tue Sep 28 16:27:19 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* Makefile.am: Added target tesdcl. A lot of cosmetic changes.
+	* configure.ac: Added support for dynamic loading library testing.
+	* circle.cpp circle.h shape.h square.cpp square.h testdcl.cpp:
+	New files to test dynamic class loading.
+
+Tue Sep 21 20:56:24 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* c++-tools: New directory containing c++ tools code.
+	* Makefile.am: Targets updated to take into account the new directory.
+
+Mon Mar 22 09:21:13 CET 2004 Patrick Guio <patrick.guio@fys.uio.no>
+
+	* m4: New directory containing m4 macros files that replace acinclude.m4.
+	* m4/ac_cxx_enable_64bits.m4 m4/ac_cxx_enable_debug.m4
+	m4/ac_cxx_enable_optimize.m4 m4/ac_cxx_enable_profile.m4
+	m4/ac_cxx_flags_preset.m4 m4/ac_cxx_lib_blitz.m4 m4/ac_env.m4
+	m4/ac_lib_dxml.m4 m4/ac_lib_fftw.m4 m4/ac_lib_fftw3.m4 m4/ac_lib_hdf4.m4
+	m4/ac_lib_mlib.m4: New Files.
+	* Makefile.am configure.ac: Updated to use the new m4 macros in m4 directory.
+	Small cosmetic fixes.
+	* makelinks.sh.in: Updated to link as well m4 macros in m4 directory.
+
+Tue Mar 16 15:38:30 CET 2004 Patrick Guio <patrick.guio@fys.uio.no>
+
+	* configure.ac: Replaced help string with AS_STRING_HELP calls. Fixed if/fi
+	sequence by case/esac call. Fixed AC_INIT and AM_INIT_AUTOMAKE.
+
+Mon Mar 15 09:55:19 CET 2004 Patrick Guio <patrick.guio@fys.uio.no>
+
+	* configure.ac: Replaced echo by AC_MSG_NOTICE calls.
+
+Thu Feb 26 11:50:52 CET 2004 Patrick Guio <patrick.guio@fys.uio.no>
+
+	* configure.ac bench_fft.cpp fftw_fft.cpp: Added support for FFTW3.
+
+Wed Jan 21 11:15:04 CET 2004 Patrick Guio <patrick.guio@fys.uio.no>
+
+	* configure.ac: Updated library check for HDF stuff.
+
+Thu Feb  6 11:05:44 CET 2003 Patrick Guio <patrick.guio@fys.uio.no>
+
+	* configure.ac: Modified path to Blitz include.
+
+Wed Nov 28 19:01:47 CET 2001 Patrick Guio <patrick.guio@fys.uio.no>
+
+	* fixed Parser stuff.

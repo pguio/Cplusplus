@@ -1,0 +1,576 @@
+2023-06-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Added two commented commands _LT_SET_OPTION() and _LTDL_SETUP.
+
+2023-02-11  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Added option subdir-objects to AM_INIT_AUTOMAKE().
+	Moved foreard option dlopen in LT_INIT().
+
+2020-07-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/f32_x86_64_g++_optim_jazz5:
+	New config for jazz5 with fedora 32.
+
+2020-04-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* const_cast.cpp, dynamic_cast.cpp, fourier-bench1.h,
+	  fourier-bench2-utils.h, gnuplot-example.cpp, multi.cpp,
+	  multi1.cpp, reinterpret_cast.cpp, test-dcl.cpp, test-dcl1.cpp:
+	Fixed warnings spotted by -Wall.
+
+2020-04-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/f31_x86_64_g++_optim_jazz3:
+	Added -Wall flag for all warnings enabled.
+
+2020-04-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/f31_x86_64_g++_optim_jazz3:
+	New config file for jazz3.
+
+2019-11-27  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/f31_x86_64_g++_optim_jazz4:
+	New config for 31 to account for new hdf5 1.10.x.
+
+2019-10-02  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/f29_x86_64_g++_optim_jazz4:
+	Updated to newer github blitz.
+
+2019-05-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* bench_tensor.cpp:
+	Added credit for the code snippet.
+
+2019-05-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* auto_ptr.cpp:
+	Change to account for auto_ptr deprecation in C++11.
+
+2019-05-01  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Added safeguard for pgc++.
+	Updated to version 1.7.1.
+
+2019-05-01  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/f29_x86_64_pgc++_optim_jazz4:
+	Updated version of f27_x86_64_pgc++_optim_jazz4.
+
+2019-05-01  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Added -lboost_chrono and -lboost_system to the list of BOOST libraries necessary
+	to compile cpu_timer_info.
+
+2018-12-24  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/: f26_x86_64_icpc_optim_jazz4,
+	  f27_x86_64_pgc++_optim_jazz4, f29_x86_64_g++_optim_jazz4:
+	Added miscellaneous configurations.
+
+2018-03-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* bench_tensor.cpp:
+	Uncommented macro definition for EIGEN_DONT_INLINE.
+
+2017-10-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench-dxml.cpp, fourier-bench-fftw.cpp,
+	  fourier-bench-fftw3.cpp, fourier-bench-mlib.cpp,
+	  fourier-bench.cpp:
+	Fixed scope of verbose variable.
+
+2017-10-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench1-dxml.cpp, fourier-bench1-fftw.cpp,
+	  fourier-bench1-fftw3.cpp, fourier-bench1-mlib.cpp,
+	  fourier-bench1.cpp, fourier-bench1.h:
+	Fixed scope of verbose variable.
+
+2017-10-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench2-dxml.cpp, fourier-bench2-fftw.cpp,
+	  fourier-bench2-fftw3.cpp, fourier-bench2-mlib.cpp,
+	  fourier-bench2-utils.h, fourier-bench2.cpp:
+	Fixed scope of verbose variable.
+
+2017-10-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* bench_tensor.cpp:
+	Cosmetic change.
+
+2017-10-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am, bench_tensor.cpp:
+	Added benchmark between Blitz and Eigen3 tensors adapted from an original
+	post by Gael Guennebaud <gael.guennebaud@gmail.com> on Blitz-devel 20/01/16.
+
+2017-10-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/f26_x86_64_g++_optim_jazz4:
+	Added config for GNU g++.
+
+2017-10-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* voronoi.cpp:
+	Cosmetic change.
+	Fixed returned value from 1 to !0.
+
+2017-10-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/f26_x86_64_clang_optim_jazz4:
+	Do not hide warnings!
+
+2017-10-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* typeid.cpp:
+	Fixed code to avoid clang++ warning and improved example to use typeid.
+
+2017-09-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Updated to version 1.7.0.
+
+2017-09-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench.cpp, fourier-bench1.cpp, fourier-bench2.cpp:
+	Removed unecessary included headers.
+
+2017-09-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/: f20_x86_64_ifort_optim_jazz3,
+	  f26_x86_64_clang_optim_jazz4:
+	Fixed variable to disable cxx flags preset.
+
+2017-09-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* test-parser.cpp, test-parser2.cpp:
+	Moved definition of template operator<< prior to definition of class Any.
+
+2017-09-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* eigen1.cpp, eigen2.cpp:
+	Removed unecessary macros to deal eigen old version 2.
+
+2017-09-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/sites/f26_x86_64_clang_optim_jazz4:
+	New config file for clang++ compiler on jazz4.
+
+2017-09-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am, fourier-bench1-dxml.cpp, fourier-bench1-fftw.cpp,
+	  fourier-bench1-fftw3.cpp, fourier-bench1-mlib.cpp,
+	  fourier-bench1.cpp, fourier-bench1.h:
+	Split files to fix interference issues between FFT2 and FFTW3 drivers.
+
+2017-09-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am, fourier-bench-dxml.cpp, fourier-bench-fftw.cpp,
+	  fourier-bench-fftw3.cpp, fourier-bench-mlib.cpp,
+	  fourier-bench.cpp, fourier-bench.h:
+	Split files to fix interference issues between FFTW2 and FFTW3.
+
+2017-06-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Added comment on subdir-objects option for AM_INIT_AUTOMAKE.
+
+2016-12-27  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* voronoi.cpp:
+	Imported Vigra voronoi example from
+	https://ukoethe.github.io/vigra/doc-release/vigra/voronoi_8cxx-example.html.
+
+2015-02-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Updated to version 1.6.0.
+
+2015-02-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am, configure.ac:
+	Added support for Boost timer examples.
+
+2015-02-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* cpu_timer1.cpp, cpu_timer2.cpp, cpu_timer_info.cpp:
+	Added examples for boost CPU timers
+	(http://www.boost.org/doc/libs/1_51_0/libs/timer/doc/cpu_timers.html).
+
+2015-02-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* config/: .cvsignore, sites/f20_x86_64_ifort_optim_jazz3:
+	Added configuration for jazz3, PG's laptop.
+	You need to run at the prompt the following command
+	./configure CONFIG_SITE=config/sites/f20_x86_64_ifort_optim_jazz3
+	The name convention is inspired from the MITgcm project convention and is
+	found in the directory "tools/build_options" of the MITgcm cvs distribution.
+
+2013-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Updated INCLUDES target name to AM_CPPFLAGS as recommended.
+
+2012-11-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Updated to version 1.5.0.
+
+2012-11-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* create_hdf_sd.cpp:
+	Enhanced example with a second SD variable initialised with a partial slab.
+
+2012-11-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Split unique test for hdf with two different tests for hdf4 and hdf5 (with
+	same source code).
+
+2012-11-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* eigen1.cpp, eigen2.cpp:
+	Updated to support latest version eigen3.
+
+2012-05-15  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Added Blitz includes path for fourier-bench2.
+
+2011-04-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* abc.cpp:
+	Removed default null pointer in Master constructor.
+
+2011-04-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* base-args.h, circle.h, factory-args1.h, shape.h, square.h:
+	Fixed header guard syntax.
+
+2011-04-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench2-utils.h:
+	Reorganised initialisation list in derivation list order.
+
+2011-04-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* abc1.cpp, factory-args.h, factory-args1.h, factory.h,
+	  fourier-bench2-utils.h, functions.cpp, functions1.cpp, loop.cpp,
+	  map1.cpp, multimap.cpp, overload1.cpp, overload2.cpp,
+	  static_dynamic_class.cpp, typeid.cpp:
+	Added all class/structure members to the initialisation list.
+
+2011-04-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* abc.cpp, base-args.h, derived-args.h, exception1.cpp,
+	  factory-args.h, factory-args1.h, factory.h, fourier-bench1.cpp,
+	  functions.cpp, functions1.cpp, shape.h, test-parser2.cpp:
+	Added explicit keyword for constructor with single argument (may cause
+	implicit type conversion).
+
+2011-03-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* update-cl.sh:
+	Updated header information.
+
+2011-03-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* abc.cpp, abc1.cpp, abc2.cpp, any.cpp, any1.cpp, any2.cpp,
+	  auto_ptr.cpp, base-args.cpp, base-args.h, base.cpp, base.h,
+	  circle.h, class_factory.cpp, class_factory1.cpp,
+	  class_factory2.cpp, class_model.cpp, class_model1.cpp,
+	  const_cast.cpp, create_hdf_sd.cpp, derived-args.cpp,
+	  derived-args.h, derived.cpp, derived.h, dll.cpp,
+	  dynamic_cast.cpp, eigen1.cpp, enum.cpp, enum.h, exception.cpp,
+	  exception1.cpp, exception2.cpp, exception3.cpp,
+	  expr_template.cpp, expr_template1.cpp, factory-args.h,
+	  factory-args1.h, factory.h, fourier-bench.cpp,
+	  fourier-bench1.cpp, fourier-bench2-dxml.cpp,
+	  fourier-bench2-fftw.cpp, fourier-bench2-fftw3.cpp,
+	  fourier-bench2-mlib.cpp, fourier-bench2-utils.h,
+	  fourier-bench2.cpp, fourier-test.cpp, functions.cpp,
+	  functions1.cpp, hash.cpp, map0.cpp, map1.cpp, map2.cpp, map3.cpp,
+	  map4.cpp, metaprog.cpp, metaprog1.cpp, multi.cpp, multi1.cpp,
+	  multi2.cpp, multimap.cpp, multimap1.cpp, overload.cpp,
+	  overload1.cpp, overload2.cpp, popt.cpp, promote_trait.cpp,
+	  readfile.cpp, reinterpret_cast.cpp, shape.h, square.h,
+	  static_dynamic_class.cpp, string0.cpp, string1.cpp, string2.cpp,
+	  string3.cpp, string_convert.cpp, test-dcl.cpp, test-enum.cpp,
+	  test-parser.cpp, test-parser2.cpp, typeid.cpp, virtual.cpp,
+	  virtual1.cpp:
+	Updated header information where necessary.
+	Astyle-formatted files.
+
+2011-03-15  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* loop.cpp:
+	Small fix for Armadillo benching. Initialise Aarray with loops and then
+	take cosine of the Cube.
+
+2011-03-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* test-parser.cpp, test-parser2.cpp:
+	Updated to account change in viewArgs() member.
+	Added a call to new member printCmd().
+
+2011-03-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* arma1.cpp:
+	Updated example to comply to armadillo v. 1.0.0.
+
+2010-03-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am, loop.cpp:
+	Added bench loop for Armadillo array.
+
+2010-03-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Updated to version 1.4.0.
+
+2010-03-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am, configure.ac:
+	Added support for configuring and compiling code using the C++ linear
+	algebra library Armadillo.
+
+2010-03-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* arma1.cpp, arma2.cpp:
+	Added two new sample codes to test the C++ linear algebra library Armadillo
+	(http://arma.sourceforge.net).
+
+2010-02-11  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Cleaned code for libtool version 2.2.6.
+
+2010-02-11  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* dll.cpp:
+	Added comparison with direct call to function.
+
+2010-02-10  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Fix to handle libltdl from libtool version 2.2.6.
+
+2009-09-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Small fixes to pass target distcheck.
+
+2009-06-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Updated to version 1.3.1.
+
+2009-06-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Added call to set up directory `m4' as an additional local Autoconf macro
+	directory.
+
+2009-04-04  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* eigen1.cpp:
+	Added matrix constructed by blocks.
+
+2009-04-04  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Updated to version 1.3.0.
+
+2009-04-04  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am, configure.ac, eigen1.cpp, eigen2.cpp:
+	Added two test programs for Eigen library (http://eigen.tuxfamily.org/)
+
+2008-07-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Updated to version 1.2.2.
+
+2008-07-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Removed unecessary program and other C tests.
+	Simplified header tests with new macros.
+
+2008-07-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench2-utils.h, functions.cpp, loop.cpp, metaprog.cpp,
+	  popt.cpp:
+	Removed cpp macros to test whether C standard headers in std namespace.
+
+2008-07-21  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench2-utils.h: Fixed name to template function from bench to benchFft.
+
+2008-07-20  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* class_model2.cpp, fourier-bench1.cpp, fourier-bench2-utils.h,
+	  functions.cpp, functions1.cpp, loop.cpp, map4.cpp, metaprog.cpp:
+	Removed restrictive constness on member op().
+	Fixed bug in fourier-bench2.cpp.
+
+2008-07-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench2-dxml.cpp, fourier-bench2-mlib.cpp:
+	Fix for more stringent g++ version 4.3.0.
+
+2008-07-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench2-fftw.cpp, fourier-bench2-fftw3.cpp,
+	  fourier-bench2-utils.h:
+	Fix for more stringent g++ version 4.3.0.
+
+2008-07-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac, hash.cpp:
+	Added support for new standard header 'unordered_map'.
+
+2008-07-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* overload.cpp, overload1.cpp, overload2.cpp, popt.cpp, map0.cpp,
+	  multimap1.cpp:
+	Fix for more stringent g++ version 4.3.0.
+
+2008-07-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench.cpp, fourier-bench1.cpp, fourier-bench2.cpp:
+	Fix for more stringent g++ version 4.3.0.
+
+2008-07-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* exception.cpp, exception1.cpp, test-dcl.cpp, test-dcl1.cpp,
+	  factory-args1.h, functions.cpp:
+	Fix for more stringent g++ version 4.3.0.
+
+2008-04-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Yet another fix for dynamic library loading.
+
+2008-04-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Fixed targets for real dynamic loading example.
+
+2008-04-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* circle.cpp, shape.h, square.cpp, test-dcl.cpp, test-dcl1.cpp:
+	Fixed to real dynamic library loading example.
+
+2008-04-17  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* test-dcl.cpp, test-dcl1.cpp:
+	Added information about loaded libraries.
+
+2008-04-17  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Fixed test_dcl1_LDADD variable to include both shape libraries.
+
+2008-04-17  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* circle.cpp, shape.h, square.cpp, test-dcl.cpp, test-dcl1.cpp:
+	Fixed old C style factory that was broken with new compiler due to global
+	variable initialsation problem.
+
+2008-04-16  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* test-dcl.cpp, test-dcl1.cpp:
+	Fixed to similar settings.
+
+2008-04-16  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Added libtool update target.
+	Fixed test_dcl and test_dcl1 targets.
+
+2008-04-16  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Removed option to enable thread safety Blitz since it is now included in
+	the AC_CHECK_BLITZ macro.
+	Removed unecessary AC_ENABLED_SHARED macro call.
+	Added substitution of LIBTOOL_DEPS variable.
+	Removed libtool ltdlopen function check and ltdl.h header check.
+	Fixed INCLTDL variable name.
+
+2008-04-16  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* circle.cpp, circle.h, shape.h, square.cpp, square.h,
+	  test-dcl.cpp, test-dcl1.cpp:
+	Astylised.
+
+2008-04-14  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	FIxed AC_CHECK_FUNC for dlopen in libdl and libtdl.
+
+2008-04-14  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-bench.cpp, fourier-bench1.cpp, fourier-bench2-utils.h,
+	  fourier-bench2.cpp:
+	Fixed stream formatting manipulators.
+
+2007-09-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Added option --enable-threadsafe to turn on Blitz thread-safety features
+	by defining the BZ_THREADSAFE macro.  If enabled, code will look for pthreads,
+	OpenMP thread support to implement mutex locking of sensitive variables.
+
+2007-05-28  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* test-parser2.cpp:
+	Test program for new parser2 class.
+
+2007-04-02  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am:
+	Fixed the test_dcl_LDADD and test_dcl1_LDADD variables for libtools.
+	Added dll_LDADD variable.
+	Added target test-parser2.
+
+2007-04-02  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* configure.ac:
+	Added variable substitution LTDL_LIBS and DL_LIBS when checking libraries
+	libdl and libtdl.
+
+2006-08-28  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* update-cl.sh:
+	Removed logging of c++-tools and m4 subdirectories.
+
+2006-08-28  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* ChangeLog, ChangeLog.0:
+	Moved ChangeLog with manual entries into ChangeLog.0
+
+2006-08-28  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* update-cl.sh:
+	Script to call cvs2cl to generate entris in ChangeLog.
+
+2006-08-28  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* Makefile.am:
+	Added POPT_LIBS into popt_LDADD variable.
+
+2006-08-28  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* configure.ac:
+	Moved libraries -lpopt, -ltdl and -ldl from general LIBS variable into
+	specific *_LIBS variables.
+
