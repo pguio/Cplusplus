@@ -1,0 +1,16 @@
+#! @SHELL@
+# -*- sh -*-
+# @configure_input@
+
+top=`pwd`
+
+if [ -e  c++-tools ]; then rm -rf c++-tools; fi
+echo linking $HOME/research/codes/c++-tools
+ln -fs $HOME/research/codes/c++-tools .
+
+if [ -e  m4 ]; then rm -rf m4; fi
+echo linking $HOME/research/codes/m4
+ln -fs $HOME/research/codes/m4 .
+
+
+cd $top
