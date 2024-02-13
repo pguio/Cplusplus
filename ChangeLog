@@ -1,3 +1,25 @@
+2024-02-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* abc.cpp, abc1.cpp, abc2.cpp, auto_ptr.cpp, bench_tensor.cpp,
+	  class_factory2.cpp, class_model.cpp, class_model1.cpp,
+	  class_model2.cpp, cpu_timer_info.cpp, create_hdf_sd.cpp,
+	  exception.cpp, exception1.cpp, exception2.cpp, exception3.cpp,
+	  expr_template.cpp, expr_template1.cpp, factory-args.h,
+	  factory-args1.h, factory.h, fourier-test.cpp, functions.cpp,
+	  functions1.cpp, loop.cpp, map0.cpp, map1.cpp, map3.cpp, map4.cpp,
+	  metaprog.cpp, multi2.cpp, multimap.cpp, multimap1.cpp,
+	  overload.cpp, overload2.cpp, popt.cpp, promote_trait.cpp,
+	  readfile.cpp, shape.h, string3.cpp, string_convert.cpp,
+	  test-parser.cpp, test-parser2.cpp, virtual.cpp, virtual1.cpp:
+	Astylised.
+
+2024-02-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* Makefile.am, enum.cpp, enum.h, test-enum.cpp:
+	Improved code example.
+	Reordered files linking order to resolve issue with static structure member
+	not being initialised prior to the registerMe constructor.
+
 2023-06-19  Patrick Guio <p.guio@ucl.ac.uk>
 
 	* configure.ac:
