@@ -114,7 +114,8 @@ int main(int nargs, char *args[])
 
     return 0;
 
-  } catch (ClassException& c) {
+  }
+  catch (ClassException& c) {
     std::cerr << c.what() << std::endl;
     return !0;
   }

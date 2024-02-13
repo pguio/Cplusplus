@@ -8,12 +8,14 @@ class Geometry {
 public:
   Geometry() {}
   virtual ~Geometry() {}
-  virtual void WhatAmI() {
+  virtual void WhatAmI()
+  {
     cout << "a base class geometry object" << endl;
     Coucou();
   }
 private:
-  virtual void Coucou() {
+  virtual void Coucou()
+  {
     cout << "Coucou from geometry" << endl;
   }
 };
@@ -22,7 +24,8 @@ class Rectangle : public Geometry {
 public:
   Rectangle() {}
   virtual ~Rectangle() {}
-  void WhatAmI() {
+  void WhatAmI()
+  {
     cout << "augmented object from" << endl;
     Geometry::WhatAmI();
     cout << "to" << endl;
@@ -30,7 +33,8 @@ public:
     Coucou();
   }
 private:
-  void Coucou() {
+  void Coucou()
+  {
     cout << "Coucou from rectangle" << endl;
   }
 };
@@ -39,7 +43,8 @@ class Square : public Rectangle {
 public:
   Square() {}
   virtual ~Square() {}
-  void WhatAmI() {
+  void WhatAmI()
+  {
     cout << "augmented object from" << endl;
     Rectangle::WhatAmI();
     cout << "to" << endl;
@@ -47,7 +52,8 @@ public:
     Coucou();
   }
 private:
-  void Coucou() {
+  void Coucou()
+  {
     cout << "Coucou from square" << endl;
   }
 };

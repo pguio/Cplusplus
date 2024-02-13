@@ -24,17 +24,21 @@ namespace fun {
 }
 
 struct Functions {
-  double f1(double x) const {
+  double f1(double x) const
+  {
     return fun::f1(x);
   }
-  double f2(double x) const {
+  double f2(double x) const
+  {
     return fun::f2(x);
   }
-  double f3(double x) const {
+  double f3(double x) const
+  {
     return fun::f3(x);
   }
   Functions(int nargs, char *args[])
-    : funId(nargs>1 ? atoi(args[1]) : fun::func1) {
+    : funId(nargs>1 ? atoi(args[1]) : fun::func1)
+  {
     if (funId < fun::func1 || funId > fun::func3) {
       std::cerr << "Exception in Function1: funId=" << funId
                 << " not registered" << std::endl;
@@ -48,7 +52,8 @@ struct Functions {
 class Function1 : protected Functions {
 public:
   Function1(int nargs, char *args[]) : Functions(nargs, args) {}
-  double get (double x) const {
+  double get (double x) const
+  {
     switch (funId) {
     case fun::func1:
       return f1(x);
@@ -61,7 +66,8 @@ public:
       throw !0;
     }
   }
-  double operator()(double x) const {
+  double operator()(double x) const
+  {
     switch (funId) {
     case fun::func1:
       return f1(x);
@@ -78,7 +84,8 @@ public:
 
 class Function2 : protected Functions {
 public:
-  Function2(int nargs, char *args[]) : Functions(nargs, args), f(0) {
+  Function2(int nargs, char *args[]) : Functions(nargs, args), f(0)
+  {
     switch (funId) {
     case fun::func1:
       f = &Function2::f1;
@@ -92,10 +99,12 @@ public:
     }
   }
   double get
-  (double x) const {
+  (double x) const
+  {
     return (this->*f)(x);
   }
-  double operator()(double x) const {
+  double operator()(double x) const
+  {
     return (this->*f)(x);
   }
 private:
@@ -104,16 +113,19 @@ private:
 
 class Function3 : protected Functions {
 public:
-  Function3(int nargs, char *args[]) : Functions(nargs, args), f() {
+  Function3(int nargs, char *args[]) : Functions(nargs, args), f()
+  {
     f[1] = &Function3::f1;
     f[2] = &Function3::f2;
     f[3] = &Function3::f3;
   }
   double get
-  (double x) const {
+  (double x) const
+  {
     return (this->*f[funId])(x);
   }
-  double operator()(double x) const {
+  double operator()(double x) const
+  {
     return (this->*f[funId])(x);
   }
 private:
@@ -122,17 +134,20 @@ private:
 
 class Function4 : protected Functions {
 public:
-  Function4(int nargs, char *args[]) : Functions(nargs, args), f() {
+  Function4(int nargs, char *args[]) : Functions(nargs, args), f()
+  {
     f[fun::func1] = &Function4::f1;
     f[fun::func2] = &Function4::f2;
     f[fun::func3] = &Function4::f3;
   }
   double get
-  (double x) const {
+  (double x) const
+  {
     flist::const_iterator i = this->f.find(funId);
     return (this->*(i->second))(x);
   }
-  double operator()(double x) const {
+  double operator()(double x) const
+  {
     flist::const_iterator i = this->f.find(funId);
     return (this->*(i->second))(x);
   }
@@ -150,21 +165,24 @@ struct Funoid {
 };
 
 struct Funoid1 : Funoid {
-  virtual double doit(double x) const {
+  virtual double doit(double x) const
+  {
     return fun::f1(x);
   }
 };
 RegisterInFactory<Funoid, Funoid1, int> r1(1);
 
 struct Funoid2 : Funoid {
-  virtual double doit(double x) const {
+  virtual double doit(double x) const
+  {
     return fun::f2(x);
   }
 };
 RegisterInFactory<Funoid, Funoid2, int> r2(2);
 
 struct Funoid3 : Funoid {
-  virtual double doit(double x) const {
+  virtual double doit(double x) const
+  {
     return fun::f3(x);
   }
 };
@@ -174,12 +192,15 @@ class Function5 {
 public:
   typedef GenericFactory<Funoid, int> Factory;
   Function5(int nargs, char *args[]) :
-    fun(Factory::instance().create(nargs>1 ? atoi(args[1]) : fun::func1)) {
+    fun(Factory::instance().create(nargs>1 ? atoi(args[1]) : fun::func1))
+  {
   }
-  double get (double x) const {
+  double get (double x) const
+  {
     return fun->doit(x);
   }
-  double operator()(double x) const {
+  double operator()(double x) const
+  {
     return fun->doit(x);
   }
 private:
@@ -194,11 +215,13 @@ namespace bench {
   template <class Function>
   struct Test1 : bench::Test {
     explicit Test1(Function _function) : function(_function) {}
-    void op() {
+    void op()
+    {
       x = 0.0;
       function.get(x);
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       std::string s(typeid(function).name());
       s.append("::get()");
       return s;
@@ -209,11 +232,13 @@ namespace bench {
   template <class Function>
   struct Test2 : bench::Test {
     explicit Test2(Function _function) : function(_function) {}
-    void op() {
+    void op()
+    {
       x = 0.0;
       function(x);
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       std::string s(typeid(function).name());
       s.append("()     ");
       return s;
@@ -228,7 +253,7 @@ int main(int nargs, char *args[])
 {
   try {
 
-    double minTime = 0.5;
+    double minTime = 2.0;
     bench::verbose = true;
 
     Function1 f1(nargs, args);
@@ -263,7 +288,8 @@ int main(int nargs, char *args[])
       bench::benchClassOp(T5, minTime);
     }
 
-  } catch (int status) {
+  }
+  catch (int status) {
     return status;
   }
 }

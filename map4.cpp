@@ -9,20 +9,24 @@ typedef lut::value_type pair;
 namespace one {
 
   struct test1 : bench::Test {
-    void op() {
+    void op()
+    {
       lut a;
       a.insert(pair(1,"foo1"));
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       return "map(); map.insert(key,value)";
     }
   };
   struct test2 : bench::Test {
-    void op() {
+    void op()
+    {
       lut a;
       a[1]="foo1";
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       return "map(); map[key]=value       ";
     }
   };
@@ -33,19 +37,23 @@ namespace two {
 
   lut a;
   struct test1 : bench::Test {
-    void op() {
+    void op()
+    {
       a.insert(pair(1,"foo1"));
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       return "map.insert(key,value)       ";
     }
   };
 
   struct test2 : bench::Test {
-    void op() {
+    void op()
+    {
       a[1]="foo1";
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       return "map[key]=value              ";
     }
   };
@@ -57,23 +65,27 @@ namespace three {
   const int n=1000;
 
   struct test1 : bench::Test {
-    void op() {
+    void op()
+    {
       lut a;
       for (int i=0; i<n; ++i)
         a.insert(pair(i,"foo1"));
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       return "1000 x map.insert(key,value)";
     }
   };
 
   struct test2 : bench::Test {
-    void op() {
+    void op()
+    {
       lut a;
       for (int i=0; i<n; ++i)
         a[i] = "foo1";
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       return "1000 x map[key]=value       ";
     }
   };

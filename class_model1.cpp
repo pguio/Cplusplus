@@ -2,17 +2,20 @@
 
 class A {
 public:
-  void print() {
+  void print()
+  {
     std::cout << "this is A" << std::endl;
   }
-  A &self() {
+  A &self()
+  {
     return *this;
   }
 };
 
 class B {
 public:
-  void print(A &a) {
+  void print(A &a)
+  {
     a.print();
     std::cout << "this is B" << std::endl;
   }
@@ -20,7 +23,8 @@ public:
 
 class C : public A, public B {
 public:
-  void print() {
+  void print()
+  {
     B::print(A::self());
   }
 };

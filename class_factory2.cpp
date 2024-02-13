@@ -30,7 +30,8 @@ int main(int nargs, char *args[])
       object->whoami();
     }
 
-  } catch (std::string &msg) {
+  }
+  catch (std::string &msg) {
 
     std::cout << msg << std::endl;
 

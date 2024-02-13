@@ -21,7 +21,8 @@ class Foo {
   LUT options;
 public:
   Foo() : options(opt, opt+3) {}
-  friend ostream& operator<<(ostream& os, const Foo & foo) {
+  friend ostream& operator<<(ostream& os, const Foo & foo)
+  {
     LUTconst_iter last=foo.options.end();
     for (LUTconst_iter i=foo.options.begin(); i!=last; ++i)
       cout << "(" << i->first << "," << i->second << ")" << endl;
@@ -33,7 +34,8 @@ class Foo1 {
   static LUT options;
 public:
   Foo1() {}
-  friend ostream& operator<<(ostream& os, const Foo1 & foo) {
+  friend ostream& operator<<(ostream& os, const Foo1 & foo)
+  {
     LUTconst_iter last=foo.options.end();
     for (LUTconst_iter i=foo.options.begin(); i!=last; ++i)
       cout << "(" << i->first << "," << i->second << ")" << endl;

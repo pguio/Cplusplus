@@ -86,7 +86,8 @@ public:
   {}
   ~Test()
   {}
-  void run() {
+  void run()
+  {
     if (allowed.find(val) == allowed.end()) {
       std::map<int, std::string>::const_iterator i(allowed.begin());
       std::string msg("Parameter should be "+ i->second);
@@ -241,7 +242,8 @@ int main(int nargs, char *args[])
 
     return 0;
 
-  } catch (ClassException& e) {
+  }
+  catch (ClassException& e) {
     cerr << e.what() << endl;
     return !0;
   }

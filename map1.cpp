@@ -12,23 +12,27 @@ class Foo {
   typedef map<OptionEnum, const char *> Options;
 
 public:
-  Foo() : SolverOption() {
+  Foo() : SolverOption()
+  {
     MapInit();
   }
   ~Foo() {}
-  void listoption() {
+  void listoption()
+  {
     Options::iterator iter=SolverOption.begin();
     do {
       cout << "enum= " << iter->first << " name= " << iter->second << endl;
       ++iter;
-    } while (iter != SolverOption.end());
+    }
+    while (iter != SolverOption.end());
   }
 
 private:
 
   Options SolverOption;
 
-  void MapInit() {
+  void MapInit()
+  {
     SolverOption[nx]="nx";
     SolverOption[ny]="ny";
     SolverOption[nxa]="nxa";

@@ -27,11 +27,13 @@ namespace bench {
 
   struct Array3d {
     Array3d() : a(0), nx(-1), ny(-1), nz(-1) {}
-    ~Array3d() {
+    ~Array3d()
+    {
       freemem();
     }
 
-    void resize(int _nx, int _ny, int _nz) {
+    void resize(int _nx, int _ny, int _nz)
+    {
       freemem();
       nx = _nx;
       ny = _ny;
@@ -44,7 +46,8 @@ namespace bench {
           a[i][j] = new double[nz];
 
     }
-    void freemem() {
+    void freemem()
+    {
       for (int i=0; i<nx; ++i)
         for (int j=0; j<ny; ++j)
           delete a[i][j];
@@ -59,26 +62,30 @@ namespace bench {
   Array3d array;
 
   struct OuterMost : bench::Test {
-    void op() {
+    void op()
+    {
       for (int i=0; i<array.nx; ++i)
         for (int j=0; j<array.ny; ++j)
           for (int k=0; k<array.nz; ++k)
             array.a[i][j][k] = cos(static_cast<double>(i)*j+j*k);
     }
-    string opName() const {
+    string opName() const
+    {
       return "Outermost C";
     }
   };
 
 
   struct InnerMost : bench::Test {
-    void op() {
+    void op()
+    {
       for (int k=0; k<array.nz; ++k)
         for (int j=0; j<array.ny; ++j)
           for (int i=0; i<array.nx; ++i)
             array.a[i][j][k] = cos(static_cast<double>(i)*j+j*k);
     }
-    string opName() const {
+    string opName() const
+    {
       return "Innermost C";
     }
   };
@@ -88,13 +95,16 @@ namespace bench {
   Array<double,3> Barray;
 
   struct BlitzArray :  bench::Test {
-    BlitzArray() {
+    BlitzArray()
+    {
       Barray.resize(array.nx,array.ny,array.nz);
     }
-    void op() {
+    void op()
+    {
       Barray = cos(1.0*(i*j+j*k));
     }
-    string opName() const {
+    string opName() const
+    {
       return "Blitz array";
     }
   };
@@ -105,10 +115,12 @@ namespace bench {
   arma::Cube<double> Aarray;
 
   struct ArmaArray : bench::Test {
-    ArmaArray() {
+    ArmaArray()
+    {
       Aarray.set_size(array.nx,array.ny,array.nz);
     }
-    void op() {
+    void op()
+    {
 #if 0
       for (int k=0; k<array.nz; ++k) // SLOWER
         for (int j=0; j<array.ny; ++j)
@@ -121,7 +133,8 @@ namespace bench {
             Aarray(i,j,k) = static_cast<double>(i)*j+j*k;
       Aarray= cos(Aarray);
     }
-    string opName() const {
+    string opName() const
+    {
       return "Arma   cube";
     }
   };

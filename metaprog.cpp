@@ -22,7 +22,8 @@ template<int N, int I, int J, int K>
 class SineSeries {
 public:
   enum { go = (K+1 != J) };
-  static double accumulate() {
+  static double accumulate()
+  {
     return 1.0 - (I*2*PI/N)*(I*2*PI/N)/(2*K+2)/(2*K+3)*
            SineSeries<N*go, I*go, J*go, (K+1)*go>::accumulate();
   }
@@ -32,7 +33,8 @@ public:
 template <>
 class SineSeries<0, 0, 0, 0> {
 public:
-  static double accumulate() {
+  static double accumulate()
+  {
     return 1.0;
   }
 };
@@ -40,7 +42,8 @@ public:
 template<int N, int I>
 class Sine {
 public:
-  static double sin() {
+  static double sin()
+  {
     return (I*2*PI/N)*SineSeries<N,I,10,0>::accumulate();
   }
 };
@@ -48,28 +51,34 @@ public:
 typedef Sine<32,5> et;
 
 struct test1 : bench::Test {
-  void op() {
+  void op()
+  {
     et::sin();
   }
-  string opName() const {
+  string opName() const
+  {
     return "Sine<32,5>::sin()       ";
   }
 };
 
 struct test2 : bench::Test {
-  void op() {
+  void op()
+  {
     sine(2.0*PI*5.0/32.0,10);
   }
-  string opName() const {
+  string opName() const
+  {
     return "sine(2.0*PI*5.0/32.0,10)";
   }
 };
 
 struct test3 : bench::Test {
-  void op() {
+  void op()
+  {
     sin(2.0*PI*5.0/32.0);
   }
-  string opName() const {
+  string opName() const
+  {
     return "sin(2.0*PI*5.0/32.0)    ";
   }
 };

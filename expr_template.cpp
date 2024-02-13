@@ -3,17 +3,18 @@
 
 namespace {
 
-  struct plus
-    { }; // Represents addition
+  struct plus {
+  }; // Represents addition
 
 // X represents a node in the parse tree
   template <typename Left, typename Op, typename Right>
-  class X
-  { };
+  class X {
+  };
 
   struct Array { // some array class
     template <typename Left, typename Op, typename Right>
-    void operator=(X<Left,Op,Right> exp) {
+    void operator=(X<Left,Op,Right> exp)
+    {
       std::cout << "operator=" << std::endl;
     }
   };

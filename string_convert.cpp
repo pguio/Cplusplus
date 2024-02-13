@@ -18,12 +18,14 @@ int main()
   double d2;
   if ( iss >> d >> i >> flag) {
     cout << "extracted: " << d << ", " << i << ", " << flag << endl;
-  } else {
+  }
+  else {
     cerr << "Didn't work" << endl;
   }
   if ( iss >> d >> c >> d2 && c == '/') {
     cout << "extracted: " << d/d2 << endl;
-  } else {
+  }
+  else {
     cerr << "Didn't work" << endl;
   }
 

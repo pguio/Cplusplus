@@ -59,21 +59,21 @@ struct promote_trait {
 
   enum {
     T1IsBetter = static_cast<int>(precision_trait<T1>::precisionRank)
-    > static_cast<int>(precision_trait<T2>::precisionRank),
+                 > static_cast<int>(precision_trait<T2>::precisionRank),
     knowBothRanks = static_cast<int>(precision_trait<T1>::knowPrecisionRank
-    && static_cast<int>(precision_trait<T2>::knowPrecisionRank)),
+                                     && static_cast<int>(precision_trait<T2>::knowPrecisionRank)),
     knowT1butNotT2 =  static_cast<int>(precision_trait<T1>::knowPrecisionRank
-    && !static_cast<int>(precision_trait<T2>::knowPrecisionRank)),
+                                       && !static_cast<int>(precision_trait<T2>::knowPrecisionRank)),
     knowT2butNotT1 =  static_cast<int>(precision_trait<T2>::knowPrecisionRank
-    && !static_cast<int>(precision_trait<T1>::knowPrecisionRank)),
+                                       && !static_cast<int>(precision_trait<T1>::knowPrecisionRank)),
     T1IsLarger = sizeof(T1) >= sizeof(T2),
     defaultPromotion = knowT1butNotT2 ? false :
-    (knowT2butNotT1 ? true : T1IsLarger)
+                       (knowT2butNotT1 ? true : T1IsLarger)
   };
   enum {
     promoteToT1 = (static_cast<int>(knowBothRanks) ?
-    static_cast<int>(T1IsBetter)
-    : static_cast<int>(defaultPromotion)) ? 1 : 0
+                   static_cast<int>(T1IsBetter)
+                   : static_cast<int>(defaultPromotion)) ? 1 : 0
   };
 
   typedef typename _bz_promote2<T1,T2,T1IsBetter>::T_promote T_promote;

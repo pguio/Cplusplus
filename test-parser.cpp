@@ -54,7 +54,7 @@ private:
          integer, int_enum, real32, real64,
          vectbool, vectchar, vectstr, vectint, vectdouble,dirlist
 #if defined(HAVE_BLITZ)
-         ,realvec3, realarray1d
+  ,realvec3, realarray1d
 #endif
        };
   bool Boolean;
@@ -251,7 +251,8 @@ int main(int nargs, char *args[])
 
     return 0;
 
-  } catch(ClassException& e) {
+  }
+  catch(ClassException& e) {
     cerr << e.what() << endl;
     return !0;
   }

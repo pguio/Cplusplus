@@ -20,7 +20,8 @@ int main()
       std::cout << "func(" << std::setw(2) << std::right << i << ") = "
                 << func(i) << std::endl;
       return 0;
-    } catch (range e) {
+    }
+    catch (range e) {
       std::cout << "[ Exception: argument too " << (e ? "large" : "small")
                 << ']' << std::endl;
     }

@@ -18,21 +18,25 @@ using namespace blitz::tensor;
 struct  Functions {
   enum funcEnums { func1=1, func2, func3 };
   typedef Array<double,2> Array2d;
-  void f1(Array2d &x) const {
+  void f1(Array2d &x) const
+  {
     x=temin;
   }
-  void f2(Array2d &x) const {
+  void f2(Array2d &x) const
+  {
     int ny = x.cols();
     int jst(x.lbound(secondDim));
     x = dte*exp(-pow2(2.0*(j-jst)/(ny-1)-1.0)/(2.0*stdte2))+temin;
   }
-  void f3(Array2d &x) const {
+  void f3(Array2d &x) const
+  {
     int nx = x.rows();
     int ist = x.lbound(firstDim);
     x = dte*exp(-pow2(2.0*(i-ist)/(nx-1)-1.0)/(2.0*stdte2))+temin;
   }
   Functions(int nargs, char *args[])
-    : funId(nargs>1 ? atoi(args[1]) : func1), temin(2.0), dte(2.0), stdte2(0.25) {
+    : funId(nargs>1 ? atoi(args[1]) : func1), temin(2.0), dte(2.0), stdte2(0.25)
+  {
     if (funId<func1 || funId>func3) {
       cerr << "Exception in Function1: funId not registered" << endl;
       throw !0;
@@ -47,7 +51,8 @@ class Function1 : protected Functions {
 public:
   Function1(int nargs, char *args[]) : Functions(nargs, args) {}
   void get
-  (Array2d &x) const {
+  (Array2d &x) const
+  {
     switch (funId) {
     case func1:
       f1(x);
@@ -60,7 +65,8 @@ public:
       return;
     }
   }
-  void operator()(Array2d &x) const {
+  void operator()(Array2d &x) const
+  {
     switch (funId) {
     case func1:
       f1(x);
@@ -77,7 +83,8 @@ public:
 
 class Function2 : protected Functions {
 public:
-  Function2(int nargs, char *args[]) : Functions(nargs, args), f() {
+  Function2(int nargs, char *args[]) : Functions(nargs, args), f()
+  {
     switch (funId) {
     case func1:
       f = &Function2::f1;
@@ -91,10 +98,12 @@ public:
     }
   }
   void get
-  (Array2d &x) const {
+  (Array2d &x) const
+  {
     (this->*f)(x);
   }
-  void operator()(Array2d &x) const {
+  void operator()(Array2d &x) const
+  {
     (this->*f)(x);
   }
 private:
@@ -103,16 +112,19 @@ private:
 
 class Function3 : protected Functions {
 public:
-  Function3(int nargs, char *args[]) : Functions(nargs, args), f() {
+  Function3(int nargs, char *args[]) : Functions(nargs, args), f()
+  {
     f[1] = &Function3::f1;
     f[2] = &Function3::f2;
     f[3] = &Function3::f3;
   }
   void get
-  (Array2d &x) const {
+  (Array2d &x) const
+  {
     (this->*f[funId])(x);
   }
-  void operator()(Array2d &x) const {
+  void operator()(Array2d &x) const
+  {
     (this->*f[funId])(x);
   }
 private:
@@ -121,17 +133,20 @@ private:
 
 class Function4 : protected Functions {
 public:
-  Function4(int nargs, char *args[]) : Functions(nargs, args), f() {
+  Function4(int nargs, char *args[]) : Functions(nargs, args), f()
+  {
     f[func1] = &Function4::f1;
     f[func2] = &Function4::f2;
     f[func3] = &Function4::f3;
   }
   void get
-  (Array2d &x) const {
+  (Array2d &x) const
+  {
     flist::const_iterator i = this->f.find(funId);
     (this->*(i->second))(x);
   }
-  void operator()(Array2d &x) const {
+  void operator()(Array2d &x) const
+  {
     flist::const_iterator i = this->f.find(funId);
     (this->*(i->second))(x);
   }
@@ -152,14 +167,16 @@ struct Funoid {
 };
 
 struct Funoid1 : Funoid {
-  virtual void doit(Array2d &x) const {
+  virtual void doit(Array2d &x) const
+  {
     x=temin;
   }
 };
 RegisterInFactory<Funoid, Funoid1, int> r1(1);
 
 struct Funoid2 : Funoid {
-  virtual void doit(Array2d &x) const {
+  virtual void doit(Array2d &x) const
+  {
     int ny = x.cols();
     int jst(x.lbound(secondDim));
     x = dte*exp(-pow2(2.0*(j-jst)/(ny-1)-1.0)/(2.0*stdte2))+temin;
@@ -168,7 +185,8 @@ struct Funoid2 : Funoid {
 RegisterInFactory<Funoid, Funoid2, int> r2(2);
 
 struct Funoid3 : Funoid {
-  void doit(Array2d &x) const {
+  void doit(Array2d &x) const
+  {
     int nx = x.rows();
     int ist = x.lbound(firstDim);
     x = dte*exp(-pow2(2.0*(i-ist)/(nx-1)-1.0)/(2.0*stdte2))+temin;
@@ -183,10 +201,12 @@ public:
   Function5(int nargs, char *args[]) :
     fun(Factory::instance()
         .create(nargs>1 ? atoi(args[1]) : Functions::func1)) {}
-  void get (Array2d & x) const {
+  void get (Array2d & x) const
+  {
     fun->doit(x);
   }
-  void operator()(Array2d & x) const {
+  void operator()(Array2d & x) const
+  {
     fun->doit(x);
   }
 private:
@@ -203,11 +223,13 @@ namespace bench {
   template <class Function>
   struct Test1 : bench::Test {
     explicit Test1(Function _function) : function(_function) {}
-    void op() {
+    void op()
+    {
       x = 0.0;
       function.get(x);
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       std::string s(typeid(function).name());
       s.append("::get()");
       return s;
@@ -218,11 +240,13 @@ namespace bench {
   template <class Function>
   struct Test2 : bench::Test {
     explicit Test2(Function _function) : function(_function) {}
-    void op() {
+    void op()
+    {
       x = 0.0;
       function(x);
     }
-    std::string opName() const {
+    std::string opName() const
+    {
       std::string s(typeid(function).name());
       s.append("()     ");
       return s;
@@ -270,7 +294,8 @@ int main(int nargs, char *args[])
       bench::benchClassOp(T5, minTime);
     }
 
-  } catch (int status) {
+  }
+  catch (int status) {
     return status;
   }
 }

@@ -10,14 +10,16 @@ public:
 
 class Imp1 : public ABC {
 public:
-  void printOn(std::ostream &os) const {
+  void printOn(std::ostream &os) const
+  {
     os << "This is an Imp1 instance";
   }
 };
 
 class Imp2 : public ABC {
 public:
-  void printOn(std::ostream &os) const {
+  void printOn(std::ostream &os) const
+  {
     os << "This is an Imp2 instance";
   }
 };
@@ -27,7 +29,8 @@ public:
   explicit Master(ABC *_abc) : abc(_abc) {}
   virtual ~Master() {}
   ABC *abc;
-  void printOn(std::ostream &os) const {
+  void printOn(std::ostream &os) const
+  {
     abc->printOn(os);
   }
 };
@@ -35,7 +38,8 @@ public:
 class Derived1 : public Master {
 public:
   Derived1() : Master(new Imp1) {}
-  ~Derived1() {
+  ~Derived1()
+  {
     delete abc;
   }
 };
@@ -43,7 +47,8 @@ public:
 class Derived2 : public Master {
 public:
   Derived2() : Master(new Imp2) {}
-  ~Derived2() {
+  ~Derived2()
+  {
     delete abc;
   }
 };

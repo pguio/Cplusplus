@@ -32,7 +32,7 @@ int main(int argc, const char *argv[])
     { "hwflow", 'h', 0, 0, 'h', "use hardware (RTS/CTS) flow control" },
     { "noflow", 'n', 0, 0, 'n', "use no flow control" },
     { "raw", 'r', 0, &raw, 0, "don't perform any character conversions" },
-    { "swflow", 's', 0, 0, 's', "use software (XON/XOF) flow control" } ,
+    { "swflow", 's', 0, 0, 's', "use software (XON/XOF) flow control" },
     POPT_AUTOHELP { 0, 0, 0, 0, 0 }
   };
 

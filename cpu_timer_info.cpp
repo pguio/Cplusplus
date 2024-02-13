@@ -80,7 +80,7 @@ int cpp_main( int argc, char * argv[] )
 int main()
 {
   std::cout << "Boost not available." << std::endl << std::endl;
-	  }
+}
 
-		  #endif
+#endif
 

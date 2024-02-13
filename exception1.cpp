@@ -11,7 +11,8 @@ struct bool_conversion_error : public std::exception {
   {}
   ~bool_conversion_error() throw()
   {}
-  const char* what() const throw() {
+  const char* what() const throw()
+  {
     string msg(" ** exception: could not convert string '"+s+"' to boolean.");
     return msg.c_str();
   }
@@ -43,7 +44,8 @@ int main()
       std::cout << "str=" << std::setw(3) << std::right << str[i]
                 << " value=" << value << std::endl;
     }
-  } catch(bool_conversion_error& x) {
+  }
+  catch(bool_conversion_error& x) {
     std::cerr << x.what() << std::endl;
     return 0;
   }

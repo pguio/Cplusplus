@@ -3,14 +3,16 @@
 
 class A {
 public:
-  void print() {
+  void print()
+  {
     std::cout << "this is A" << std::endl;
   }
 };
 
 class B {
 public:
-  void print(A &a) {
+  void print(A &a)
+  {
     a.print();
     std::cout << "this is B" << std::endl;
   }
@@ -20,7 +22,8 @@ class C {
 public:
   A a;
   B b;
-  void print() {
+  void print()
+  {
     b.print(a);
   }
 };

@@ -8,7 +8,8 @@ using std::endl;
 
 
 struct ltstr {
-  bool operator()(const char* s1, const char* s2) const {
+  bool operator()(const char* s1, const char* s2) const
+  {
     return strcmp(s1, s2) < 0;
   }
 };

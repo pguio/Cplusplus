@@ -18,14 +18,17 @@ public:
   registry_t registry;
 public:
   shapeFactory() : registry() {}
-  static shapeFactory &instance() {
+  static shapeFactory &instance()
+  {
     static shapeFactory bf;
     return bf;
   }
-  void registerShape(const std::string &name, shapeCreateFn bf) {
+  void registerShape(const std::string &name, shapeCreateFn bf)
+  {
     registry[name] = bf;
   }
-  shapePtr create(const std::string &name) const {
+  shapePtr create(const std::string &name) const
+  {
     shapePtr theObject(0);
     registry_t::const_iterator regEntry = registry.find(name);
     if (regEntry != registry.end()) {
@@ -34,10 +37,12 @@ public:
     }
     return theObject;
   }
-  registry_t::iterator begin() {
+  registry_t::iterator begin()
+  {
     return registry.begin();
   }
-  registry_t::iterator end() {
+  registry_t::iterator end()
+  {
     return registry.end();
   }
 };
@@ -47,10 +52,12 @@ class registerInFactory {
 private:
   typedef shapeFactory::shapePtr shapePtr;
 public:
-  static shapePtr createInstance() {
+  static shapePtr createInstance()
+  {
     return shapePtr(new shapeType);
   }
-  explicit registerInFactory(const std::string &name) {
+  explicit registerInFactory(const std::string &name)
+  {
     std::cout << "registering " << name << " in factory" << std::endl;
     shapeFactory::instance().registerShape(name, createInstance);
   }

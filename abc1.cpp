@@ -13,14 +13,16 @@ public:
 
 class Imp1 : public ABC {
 public:
-  void printOn(std::ostream &os) const {
+  void printOn(std::ostream &os) const
+  {
     os << "This is an Imp1 instance";
   }
 };
 
 class Imp2 : public ABC {
 public:
-  void printOn(std::ostream &os) const {
+  void printOn(std::ostream &os) const
+  {
     os << "This is an Imp2 instance";
   }
 };
@@ -31,7 +33,8 @@ public:
   Master() : abc() {}
   virtual ~Master() {}
   T abc;
-  void printOn(std::ostream &os) const {
+  void printOn(std::ostream &os) const
+  {
     abc.printOn(os);
   }
   void hello() const;

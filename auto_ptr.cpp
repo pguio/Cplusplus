@@ -15,13 +15,16 @@ using std::auto_ptr;
 
 class MyClass {
 public:
-  MyClass() {
+  MyClass()
+  {
     cout << "I am created" << endl;
   }
-  ~MyClass() {
+  ~MyClass()
+  {
     cout << "I am destroyed" << endl;
   }
-  void DoSomething() {
+  void DoSomething()
+  {
     cout << "I am doing something" << endl;
   }
 };

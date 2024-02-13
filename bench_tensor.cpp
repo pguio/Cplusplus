@@ -11,7 +11,7 @@
 // from /usr/include/eigen3/Eigen/src/Core/util/Macros.h
 #define EIGEN_DONT_INLINE __attribute__((noinline))
 
-// from https://sourceforge.net/p/blitz/mailman/blitz-devel/ 
+// from https://sourceforge.net/p/blitz/mailman/blitz-devel/
 // Post by Gael Guennebaud <gael.guennebaud@gmail.com> on Blitz-devel 20/01/16
 // https://sourceforge.net/p/blitz/mailman/blitz-devel/?viewmonth=201601&viewday=20
 // from https://sourceforge.net/p/blitz/mailman/attachment/CACgDPxPS1FMA43cjmuH5QkGAGKH7ZC73arZ%2BptCuGXTqitKHZQ%40mail.gmail.com/2/

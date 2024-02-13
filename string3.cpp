@@ -14,7 +14,8 @@ void split(string &str)
   //cout << "pos " << pos << " len " << len << endl;
   if (pos==string::npos || pos==len-1) {
     cout << "str " << str << endl;
-  } else {
+  }
+  else {
     string str1(str.substr(0, pos));
     string str2(str.substr(pos+1));
     cout << "str1 " << str1 << " str2 " << str2 << endl;

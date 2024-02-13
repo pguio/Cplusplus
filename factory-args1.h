@@ -41,7 +41,8 @@ private:
   GenericFactory &operator=(const GenericFactory&); // Not implemented
 
 public:
-  static GenericFactory &instance() {
+  static GenericFactory &instance()
+  {
     if ( !bf ) {
       bf = new GenericFactory<ManufacturedType, ClassIDKey>;
       std::atexit(kill);
@@ -49,35 +50,41 @@ public:
     return *bf;
   }
 
-  void RegCreateFn(const ClassIDKey & id, BaseCreateFn fn) {
+  void RegCreateFn(const ClassIDKey & id, BaseCreateFn fn)
+  {
     registry[id] = fn;
   }
 
-  BasePtr create(const ClassIDKey &className,int nargs, char *args[]) const {
+  BasePtr create(const ClassIDKey &className,int nargs, char *args[]) const
+  {
     BasePtr theObject(0);
     typename FnRegistry::const_iterator regEntry = registry.find(className);
     if (regEntry != registry.end()) {
       theObject = regEntry->second(nargs,args);
-    } else {
+    }
+    else {
       throw std::string("Error: unknown ClassIDKey: "+className);
     }
     return theObject;
   }
-  void content() const {
+  void content() const
+  {
     std::cout << "Factory content: " << std::endl;
     for (typename FnRegistry::const_iterator regEntry = registry.begin();
          regEntry != registry.end(); ++regEntry) {
       std::cout << " * " << regEntry->first << std::endl;
     }
   }
-  void init() const {
+  void init() const
+  {
     factory::baseDummy();
     factory::derivedDummy();
   }
 private:
   static GenericFactory<ManufacturedType, ClassIDKey> *bf;
   /// Call by atexit() to clean up.
-  static void kill() {
+  static void kill()
+  {
     GenericFactory<ManufacturedType, ClassIDKey> *p(bf);
     bf = 0;
     p->~GenericFactory<ManufacturedType, ClassIDKey>();
@@ -94,11 +101,13 @@ private:
   typedef GenericFactory<AncestorType, ClassIDKey> Factory;
   typedef typename Factory::BasePtr BasePtr;
 public:
-  static BasePtr CreateInstance(int nargs, char *args[]) {
+  static BasePtr CreateInstance(int nargs, char *args[])
+  {
     return BasePtr(new ManufacturedType(nargs, args));
   }
 
-  explicit RegisterInFactory(const ClassIDKey &id) {
+  explicit RegisterInFactory(const ClassIDKey &id)
+  {
     Factory::instance().RegCreateFn(id, CreateInstance);
   }
 };

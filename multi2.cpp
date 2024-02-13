@@ -13,7 +13,8 @@ public:
 
 class Der1 : public virtual Base {
 public:
-  virtual void foo() {
+  virtual void foo()
+  {
     std::cout << "I am a Der1::foo() calling this->bar()" << std::endl;
     // Cross delegation
     // when Der1::foo() calls this->bar(), it ends up calling Der2::bar().
@@ -23,13 +24,14 @@ public:
 
 class Der2 : public virtual Base {
 public:
-  virtual void bar() {
+  virtual void bar()
+  {
     std::cout << "I am a Der2::bar()" << std::endl;
   }
 };
 
-class Join : public Der1, public Der2
-{ };
+class Join : public Der1, public Der2 {
+};
 
 int main()
 {

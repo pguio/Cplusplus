@@ -29,7 +29,8 @@ int main()
                 << " value=" << value << std::endl;
     }
     return 0;
-  } catch(std::string &s) {
+  }
+  catch(std::string &s) {
     std::cerr << " ** exception: could not convert string '" << s
               << "' to boolean." << std::endl;
     return 0;

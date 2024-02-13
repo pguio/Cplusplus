@@ -17,7 +17,8 @@ private:
   Conf conf;
   friend ostream& operator<<(ostream& os, const Conf &conf);
 public:
-  void ViewConf(ostream& os) {
+  void ViewConf(ostream& os)
+  {
     os << conf;
   }
   friend ostream& operator<<(ostream& os, const Foo &foo);

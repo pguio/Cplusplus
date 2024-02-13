@@ -60,7 +60,8 @@ int main()
 
     return 0;
 
-  } catch (string &filename) {
+  }
+  catch (string &filename) {
 
     std::cerr << " ** Error : " << filename << " not found." << std::endl;
     return !0;

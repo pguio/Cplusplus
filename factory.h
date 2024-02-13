@@ -35,17 +35,20 @@ private:
   BaseFactory & operator=(const BaseFactory &); // Not implemented
 
 public:
-  static BaseFactory & instance() {
+  static BaseFactory & instance()
+  {
     static BaseFactory bf;
     return bf;
   }
 
-  bool RegCreateFn(const defaultIDKeyType &className, BaseCreateFn fn) {
+  bool RegCreateFn(const defaultIDKeyType &className, BaseCreateFn fn)
+  {
     registry[className] = fn;
     return true;
   }
 
-  BasePtr create(const defaultIDKeyType &className) const {
+  BasePtr create(const defaultIDKeyType &className) const
+  {
     BasePtr theObject(0);
     typename FnRegistry::const_iterator regEntry = registry.find(className);
     if (regEntry != registry.end()) {
@@ -54,7 +57,8 @@ public:
     return theObject;
   }
 
-  void content() const {
+  void content() const
+  {
     typename FnRegistry::const_iterator regEntry = registry.begin();
     std::cout << "Factory content: " << std::endl;
     for ( ; regEntry != registry.end(); ++regEntry) {
@@ -74,7 +78,7 @@ namespace                                                         \
     bool dummy = BaseFactory<BASE_CLASS>::instance().RegCreateFn( \
          #DERIVED_CLASS, Create##DERIVED_CLASS);                  \
 }                                                                 \
- 
+
 // Generic implementation
 
 template <class ManufacturedType, typename ClassIDKey=defaultIDKeyType>
@@ -95,16 +99,19 @@ private:
   GenericFactory &operator=(const GenericFactory&); // Not implemented
 
 public:
-  static GenericFactory &instance() {
+  static GenericFactory &instance()
+  {
     static GenericFactory<ManufacturedType, ClassIDKey> bf;
     return bf;
   }
 
-  void RegCreateFn(const ClassIDKey & id, BaseCreateFn fn) {
+  void RegCreateFn(const ClassIDKey & id, BaseCreateFn fn)
+  {
     registry[id] = fn;
   }
 
-  BasePtr create(const ClassIDKey &className) const {
+  BasePtr create(const ClassIDKey &className) const
+  {
     BasePtr theObject(0);
     typename FnRegistry::const_iterator regEntry = registry.find(className);
     if (regEntry != registry.end()) {
@@ -112,7 +119,8 @@ public:
     }
     return theObject;
   }
-  void content() const {
+  void content() const
+  {
     typename FnRegistry::const_iterator regEntry = registry.begin();
     std::cout << "Factory content: " << std::endl;
     for ( ; regEntry != registry.end(); ++regEntry) {
@@ -124,18 +132,20 @@ public:
 
 
 template <class AncestorType,
-         class ManufacturedType,
-         typename ClassIDKey=defaultIDKeyType>
+          class ManufacturedType,
+          typename ClassIDKey=defaultIDKeyType>
 class RegisterInFactory {
 private:
   typedef GenericFactory<AncestorType, ClassIDKey> Factory;
   typedef typename Factory::BasePtr BasePtr;
 public:
-  static BasePtr CreateInstance() {
+  static BasePtr CreateInstance()
+  {
     return BasePtr(new ManufacturedType);
   }
 
-  explicit RegisterInFactory(const ClassIDKey &id) {
+  explicit RegisterInFactory(const ClassIDKey &id)
+  {
     Factory::instance().RegCreateFn(id, CreateInstance);
   }
 };

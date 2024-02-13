@@ -12,37 +12,43 @@ public:
   typedef std::multimap<int, const char*> Options;
   typedef std::pair<OptionEnum, const char* const> OptionPair;
 
-  totoclass() : SolverOption() {
+  totoclass() : SolverOption()
+  {
     MapInit();
   }
   ~totoclass()
   {}
 
-  void listoption() {
+  void listoption()
+  {
     Options::iterator I=SolverOption.begin();
     do {
       cout << "enum= " << (*I).first << " name= " << (*I).second << endl;
       ++I;
-    } while (I != SolverOption.end());
+    }
+    while (I != SolverOption.end());
   }
 
-  void listoptionkey(int key) {
+  void listoptionkey(int key)
+  {
     Options::iterator I=SolverOption.find(key);
     do {
       cout << "key= " << key << " name= " << (*I).second << endl;
       ++I;
-    } while (I != SolverOption.upper_bound(key));
+    }
+    while (I != SolverOption.upper_bound(key));
   }
 
 private :
 
   Options SolverOption;
 
-  void MapInit() {
-    SolverOption.insert(OptionPair(nx , "nx"));
-    SolverOption.insert(OptionPair(nx , "-nx"));
-    SolverOption.insert(OptionPair(ny , "ny"));
-    SolverOption.insert(OptionPair(ny , "-ny"));
+  void MapInit()
+  {
+    SolverOption.insert(OptionPair(nx, "nx"));
+    SolverOption.insert(OptionPair(nx, "-nx"));
+    SolverOption.insert(OptionPair(ny, "ny"));
+    SolverOption.insert(OptionPair(ny, "-ny"));
     SolverOption.insert(OptionPair(nxa, "nxa"));
     SolverOption.insert(OptionPair(nxa, "-nxa"));
     SolverOption.insert(OptionPair(nxb, "nxb"));
@@ -51,7 +57,7 @@ private :
     SolverOption.insert(OptionPair(nyc, "-nyc"));
     SolverOption.insert(OptionPair(nyd, "nyd"));
     SolverOption.insert(OptionPair(nyd, "-nyd"));
-    SolverOption.insert(OptionPair(nx , "-Nx"));
+    SolverOption.insert(OptionPair(nx, "-Nx"));
   }
 
 };

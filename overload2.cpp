@@ -14,7 +14,8 @@ private:
     int field1;
     double field2;
     const char *field3;
-    Conf() :  field1_map(), field1(1), field2(20.0), field3("coucou") {
+    Conf() :  field1_map(), field1(1), field2(20.0), field3("coucou")
+    {
       field1_map.insert(std::pair<int, const char*>(periodic,"periodic"));
       field1_map.insert(std::pair<int, const char*>(dirichlet,"dirichlet"));
       field1_map.insert(std::pair<int, const char*>(mixed,"newmann"));

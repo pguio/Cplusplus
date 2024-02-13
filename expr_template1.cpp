@@ -4,13 +4,15 @@
 namespace {
 
   struct plus { // Represents addition
-    static double apply(double a, double b) {
+    static double apply(double a, double b)
+    {
       return a+b;
     }
   };
 
   struct mult { // Represents addition
-    static double apply(double a, double b) {
+    static double apply(double a, double b)
+    {
       return a*b;
     }
   };
@@ -23,7 +25,8 @@ namespace {
     Right rightNode_;
     X(Left t1, Right t2) : leftNode_(t1), rightNode_(t2)
     {}
-    double operator[](int i) {
+    double operator[](int i)
+    {
       return Op::apply(leftNode_[i],rightNode_[i]);
     }
   };
@@ -33,11 +36,13 @@ namespace {
     {}
     // Assgn an expression to the array
     template <typename Left, typename Op, typename Right>
-    void operator=(X<Left,Op,Right> expr) {
+    void operator=(X<Left,Op,Right> expr)
+    {
       for (int i=0; i<N_; ++i)
         data_[i] = expr[i];
     }
-    double operator[](int i) {
+    double operator[](int i)
+    {
       return data_[i];
     }
     double *data_;

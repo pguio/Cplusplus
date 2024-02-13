@@ -143,9 +143,11 @@ int main(int nargs, char *args[])
 
     return 0;
 
-  } catch(int status) {
+  }
+  catch(int status) {
     return status;
-  } catch(ClassException& c) {
+  }
+  catch(ClassException& c) {
     cerr << c.what() << endl;
     return !0;
   }
