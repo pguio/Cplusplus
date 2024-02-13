@@ -247,7 +247,7 @@ lib_LTLIBRARIES = libcircle.la libsquare.la
 libcircle_la_SOURCES = circle.cpp
 libsquare_la_SOURCES = square.cpp
 
-test_enum_SOURCES = test-enum.cpp enum.cpp
+test_enum_SOURCES = enum.cpp test-enum.cpp 
 
 test_parser_SOURCES  = test-parser.cpp $(cpptools_dir)/parser.cpp 
 test_parser_CXXFLAGS = $(BLITZ_CPPFLAGS)
