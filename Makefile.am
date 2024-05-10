@@ -11,6 +11,7 @@ bin_PROGRAMS = \
 abc abc1 abc2 \
 any any1 any2 \
 arma1 arma2 \
+auto \
 auto_ptr \
 bench_tensor \
 class_factory class_factory1 class_factory2 class_factory3 \
@@ -76,6 +77,8 @@ arma2_SOURCES = arma2.cpp
 arma2_CXXFLAGS = $(ARMA_CPPFLAGS) 
 arma2_LDFLAGS = $(ARMA_LDFLAGS)
 arma2_LDADD = $(ARMA_LIBS)
+
+auto_SOURCES = auto.cpp
 
 auto_ptr_SOURCES = auto_ptr.cpp
 
